@@ -20,8 +20,8 @@ unitTest: system
 
 run : runSeatUnitTest
 
-runSeatUnitTest: unitTest
+runSeatUnitTest:
 	java -cp $(lib) org.junit.runner.JUnitCore test.SeatUnitTest
 
-runPlaneUnitTest: unitTest
+runPlaneUnitTest:
 	java -cp $(lib) org.junit.runner.JUnitCore test.PlaneUnitTest
