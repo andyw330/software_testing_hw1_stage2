@@ -17,7 +17,7 @@ public class SeatUnitTest {
 
 	@Before
 	public void setUp() throws Exception {
-		s1 = new Seat();
+		s1 = new Seat(TYPE.EC, 1, 'A');;
 	}
 
 	@After
@@ -65,12 +65,24 @@ public class SeatUnitTest {
 	public void getSeatPriceTest_EquivalenceTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		assertEquals(5000, s1.getSeatPrice());
+		s1 = new Seat(TYPE.EDC, 27, 'A');
+		assertEquals(20000, s1.getSeatPrice());
+		s1 = new Seat(TYPE.SBC, 6, 'A');
+		assertEquals(50000, s1.getSeatPrice());
+		s1 = new Seat(TYPE.SFC, 1, 'A');
+		assertEquals(100000, s1.getSeatPrice());
 	}
 	
 	@Test
 	public void getSeatPriceTest_EdgeValueTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		assertEquals(5000, s1.getSeatPrice());
+		s1 = new Seat(TYPE.EDC, 27, 'A');
+		assertEquals(20000, s1.getSeatPrice());
+		s1 = new Seat(TYPE.SBC, 6, 'A');
+		assertEquals(50000, s1.getSeatPrice());
+		s1 = new Seat(TYPE.SFC, 1, 'A');
+		assertEquals(100000, s1.getSeatPrice());
 	}
 
 	@Test
@@ -97,6 +109,20 @@ public class SeatUnitTest {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		s1.orderFood(FOOD.BEEF);
 		assertEquals(7000, s1.getPrice());
+
+		s1 = new Seat(TYPE.EDC, 27, 'A');
+		s1.orderFood(FOOD.VEGETABLE);
+		assertEquals(20500, s1.getPrice());
+
+		s1 = new Seat(TYPE.SBC, 6, 'A');
+		s1.orderFood(FOOD.NONE);
+		assertEquals(50000, s1.getPrice());
+		s1.orderFood(FOOD.VEGETABLE);
+
+		s1 = new Seat(TYPE.SFC, 1, 'A');
+		s1.orderFood(FOOD.NONE);
+		assertEquals(100000, s1.getPrice());
+		s1.orderFood(FOOD.VEGETABLE);
 	}
 	
 	@Test
@@ -104,6 +130,20 @@ public class SeatUnitTest {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		s1.orderFood(FOOD.BEEF);
 		assertEquals(7000, s1.getPrice());
+
+		s1 = new Seat(TYPE.EDC, 27, 'A');
+		s1.orderFood(FOOD.VEGETABLE);
+		assertEquals(20500, s1.getPrice());
+
+		s1 = new Seat(TYPE.SBC, 6, 'A');
+		s1.orderFood(FOOD.NONE);
+		assertEquals(50000, s1.getPrice());
+		s1.orderFood(FOOD.VEGETABLE);
+
+		s1 = new Seat(TYPE.SFC, 1, 'A');
+		s1.orderFood(FOOD.NONE);
+		assertEquals(100000, s1.getPrice());
+		s1.orderFood(FOOD.VEGETABLE);
 	}
 
 	@Test
@@ -179,33 +219,34 @@ public class SeatUnitTest {
 
 	@Test
 	public void isAvailableTest_BoundaryValueTesting() {
-		assertEquals(false, s1.isAvailable());
+		assertEquals(true, s1.isAvailable());
 	}
 
 	@Test
 	public void isAvailableTest_EquivalenceTesting() {
-		assertEquals(false, s1.isAvailable());	
-		s1 = new Seat(TYPE.EC, 1, 'A');
-		assertEquals(true, s1.isAvailable());
+		assertEquals(true, s1.isAvailable());	
+		s1 = new Seat();
+		assertEquals(false, s1.isAvailable());
 	}
 	
 	@Test
 	public void isAvailableTest_EdgeValueTesting() {
-		assertEquals(false, s1.isAvailable());	
-		s1 = new Seat(TYPE.EC, 1, 'A');
-		assertEquals(true, s1.isAvailable());
+		assertEquals(true, s1.isAvailable());	
+		s1 = new Seat();
+		assertEquals(false, s1.isAvailable());
 	}
 
 	@Test
 	public void isAvailableTest_DecisionTableBasedTesting() {
-		assertEquals(false, s1.isAvailable());	
-		s1 = new Seat(TYPE.EC, 1, 'A');
-		assertEquals(true, s1.isAvailable());
+		assertEquals(true, s1.isAvailable());	
+		s1 = new Seat();
+		assertEquals(false, s1.isAvailable());
 	}
 
 	@Test
 	public void isBookableTest_BoundaryValueTesting() {
-
+		s1.register(1);
+		assertEquals(false, s1.isBookable());
 	}
 
 	@Test
