@@ -181,4 +181,44 @@ public class PlaneUnitTest {
 		assertEquals("A45", p.A[45].seatName);
 	}
 
+	@Test
+	public void removeRowATest_BoundaryValueTesting() {
+		p.removeRowA(1);
+		assertEquals(false, p.A[1].isAvailable());
+		p.removeRowA(2);
+		assertEquals(false, p.A[2].isAvailable());
+		p.removeRowA(8);
+		assertEquals(false, p.A[8].isAvailable());
+		p.removeRowA(69);
+		assertEquals(false, p.A[69].isAvailable());
+		p.removeRowA(70);
+		assertEquals(false, p.A[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowATest_EquivalenceTesting() {
+		p.removeRowA(1);
+		assertEquals(false, p.A[1].isAvailable());
+	}
+	
+	@Test
+	public void removeRowATest_EdgeValueTesting() {
+		p.removeRowA(1);
+		assertEquals(false, p.A[1].isAvailable());
+		p.removeRowA(2);
+		assertEquals(false, p.A[2].isAvailable());
+		p.removeRowA(69);
+		assertEquals(false, p.A[69].isAvailable());
+		p.removeRowA(70);
+		assertEquals(false, p.A[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowATest_DecisionTableBasedTesting() {
+		p.removeRowA(1);
+		assertEquals(false, p.A[1].isAvailable());
+	}
+
+
+
 }
