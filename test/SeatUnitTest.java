@@ -54,4 +54,35 @@ public class SeatUnitTest {
 		s1.orderFood(FOOD.NONE);
 		assertEquals("None", s1.foodType());
 	}
+
+	@Test
+	public void testGetSeatPrice_BoundaryValueTesting() {
+		s1 = new Seat(TYPE.EC, 1, 'A');
+		assertEquals(5000, s1.getSeatPrice());
+	}
+
+	@Test
+	public void testGetSeatPrice_EquivalenceTesting() {
+		s1 = new Seat(TYPE.EC, 1, 'A');
+		assertEquals(5000, s1.getSeatPrice());
+	}
+	
+	@Test
+	public void testGetSeatPrice_EdgeValueTesting() {
+		s1 = new Seat(TYPE.EC, 1, 'A');
+		assertEquals(5000, s1.getSeatPrice());
+	}
+
+	@Test
+	public void testGetSeatPrice_DecisionTableBasedTesting() {
+		s1 = new Seat(TYPE.EC, 1, 'A');
+		assertEquals(5000, s1.getSeatPrice());
+		s1 = new Seat(TYPE.EDC, 27, 'A');
+		assertEquals(20000, s1.getSeatPrice());
+		s1 = new Seat(TYPE.SBC, 6, 'A');
+		assertEquals(50000, s1.getSeatPrice());
+		s1 = new Seat(TYPE.SFC, 1, 'A');
+		assertEquals(100000, s1.getSeatPrice());
+
+	}
 }
