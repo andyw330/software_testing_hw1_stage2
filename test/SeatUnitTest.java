@@ -83,6 +83,69 @@ public class SeatUnitTest {
 		assertEquals(50000, s1.getSeatPrice());
 		s1 = new Seat(TYPE.SFC, 1, 'A');
 		assertEquals(100000, s1.getSeatPrice());
+	}
 
+	@Test
+	public void TestGetPrice_BoundaryValueTesting() {
+		s1 = new Seat(TYPE.EC, 1, 'A');
+		s1.orderFood(FOOD.BEEF);
+		assertEquals(7000, s1.getPrice());
+	}
+
+	@Test
+	public void TestGetPrice_EquivalenceTesting() {
+		s1 = new Seat(TYPE.EC, 1, 'A');
+		s1.orderFood(FOOD.BEEF);
+		assertEquals(7000, s1.getPrice());
+	}
+	
+	@Test
+	public void TestGetPrice_EdgeValueTesting() {
+		s1 = new Seat(TYPE.EC, 1, 'A');
+		s1.orderFood(FOOD.BEEF);
+		assertEquals(7000, s1.getPrice());
+	}
+
+	@Test
+	public void TestGetPrice_DecisionTableBasedTesting() {
+		s1 = new Seat(TYPE.EC, 1, 'A');
+		s1.orderFood(FOOD.NONE);
+		assertEquals(5000, s1.getPrice());
+		s1.orderFood(FOOD.VEGETABLE);
+		assertEquals(5500, s1.getPrice());
+		s1.orderFood(FOOD.PORK);
+		assertEquals(6000, s1.getPrice());
+		s1.orderFood(FOOD.BEEF);
+		assertEquals(7000, s1.getPrice());
+
+		s1 = new Seat(TYPE.EDC, 27, 'A');
+		s1.orderFood(FOOD.NONE);
+		assertEquals(20000, s1.getPrice());
+		s1.orderFood(FOOD.VEGETABLE);
+		assertEquals(20500, s1.getPrice());
+		s1.orderFood(FOOD.PORK);
+		assertEquals(21000, s1.getPrice());
+		s1.orderFood(FOOD.BEEF);
+		assertEquals(22000, s1.getPrice());
+	
+		s1 = new Seat(TYPE.SBC, 6, 'A');
+		s1.orderFood(FOOD.NONE);
+		assertEquals(50000, s1.getPrice());
+		s1.orderFood(FOOD.VEGETABLE);
+		assertEquals(50500, s1.getPrice());
+		s1.orderFood(FOOD.PORK);
+		assertEquals(51000, s1.getPrice());
+		s1.orderFood(FOOD.BEEF);
+		assertEquals(52000, s1.getPrice());
+
+		s1 = new Seat(TYPE.SFC, 1, 'A');
+		s1.orderFood(FOOD.NONE);
+		assertEquals(100000, s1.getPrice());
+		s1.orderFood(FOOD.VEGETABLE);
+		assertEquals(100500, s1.getPrice());
+		s1.orderFood(FOOD.PORK);
+		assertEquals(101000, s1.getPrice());
+		s1.orderFood(FOOD.BEEF);
+		assertEquals(102000, s1.getPrice());
 	}
 }
