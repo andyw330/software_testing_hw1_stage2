@@ -26,25 +26,25 @@ public class SeatUnitTest {
 	}
 
 	@Test
-	public void testOrderFood_BoundaryValueTesting() {
+	public void orderFoodTest_BoundaryValueTesting() {
 		s1.orderFood(FOOD.BEEF);
 		assertEquals("Beef", s1.foodType());
 	}
 
 	@Test
-	public void testOrderFood_EquivalenceTesting() {
+	public void orderFoodTest_EquivalenceTesting() {
 		s1.orderFood(FOOD.BEEF);
 		assertEquals("Beef", s1.foodType());
 	}
 	
 	@Test
-	public void testOrderFood_EdgeValueTesting() {
+	public void orderFoodTest_EdgeValueTesting() {
 		s1.orderFood(FOOD.BEEF);
 		assertEquals("Beef", s1.foodType());
 	}
 
 	@Test
-	public void testOrderFood_DecisionTableBasedTesting() {
+	public void orderFoodTest_DecisionTableBasedTesting() {
 		s1.orderFood(FOOD.BEEF);
 		assertEquals("Beef", s1.foodType());
 		s1.orderFood(FOOD.PORK);
@@ -56,25 +56,25 @@ public class SeatUnitTest {
 	}
 
 	@Test
-	public void testGetSeatPrice_BoundaryValueTesting() {
+	public void getSeatPriceTest_BoundaryValueTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		assertEquals(5000, s1.getSeatPrice());
 	}
 
 	@Test
-	public void testGetSeatPrice_EquivalenceTesting() {
+	public void getSeatPriceTest_EquivalenceTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		assertEquals(5000, s1.getSeatPrice());
 	}
 	
 	@Test
-	public void testGetSeatPrice_EdgeValueTesting() {
+	public void getSeatPriceTest_EdgeValueTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		assertEquals(5000, s1.getSeatPrice());
 	}
 
 	@Test
-	public void testGetSeatPrice_DecisionTableBasedTesting() {
+	public void getSeatPriceTest_DecisionTableBasedTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		assertEquals(5000, s1.getSeatPrice());
 		s1 = new Seat(TYPE.EDC, 27, 'A');
@@ -86,28 +86,28 @@ public class SeatUnitTest {
 	}
 
 	@Test
-	public void TestGetPrice_BoundaryValueTesting() {
+	public void getPriceTest_BoundaryValueTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		s1.orderFood(FOOD.BEEF);
 		assertEquals(7000, s1.getPrice());
 	}
 
 	@Test
-	public void TestGetPrice_EquivalenceTesting() {
+	public void getPriceTest_EquivalenceTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		s1.orderFood(FOOD.BEEF);
 		assertEquals(7000, s1.getPrice());
 	}
 	
 	@Test
-	public void TestGetPrice_EdgeValueTesting() {
+	public void getPriceTest_EdgeValueTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		s1.orderFood(FOOD.BEEF);
 		assertEquals(7000, s1.getPrice());
 	}
 
 	@Test
-	public void TestGetPrice_DecisionTableBasedTesting() {
+	public void getPriceTest_DecisionTableBasedTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
 		s1.orderFood(FOOD.NONE);
 		assertEquals(5000, s1.getPrice());
@@ -150,30 +150,77 @@ public class SeatUnitTest {
 	}
 
 	@Test
-	public void TestRegister_BoundaryValueTesting() {
+	public void registerTest_BoundaryValueTesting() {
 		s1.register(1);
 		assertEquals(1, s1.getCode());
 		assertEquals(true, s1.isRegistered());
 	}
 
 	@Test
-	public void TestRegister_EquivalenceTesting() {
+	public void registerTest_EquivalenceTesting() {
 		s1.register(1);
 		assertEquals(1, s1.getCode());
 		assertEquals(true, s1.isRegistered());
 	}
 	
 	@Test
-	public void TestRegister_EdgeValueTesting() {
+	public void registerTest_EdgeValueTesting() {
 		s1.register(1);
 		assertEquals(1, s1.getCode());
 		assertEquals(true, s1.isRegistered());
 	}
 
 	@Test
-	public void TestRegister_DecisionTableBasedTesting() {
+	public void registerTest_DecisionTableBasedTesting() {
 		s1.register(1);
 		assertEquals(1, s1.getCode());
 		assertEquals(true, s1.isRegistered());
 	}
+
+	@Test
+	public void isAvailableTest_BoundaryValueTesting() {
+		assertEquals(false, s1.isAvailable());
+	}
+
+	@Test
+	public void isAvailableTest_EquivalenceTesting() {
+		assertEquals(false, s1.isAvailable());	
+		s1 = new Seat(TYPE.EC, 1, 'A');
+		assertEquals(true, s1.isAvailable());
+	}
+	
+	@Test
+	public void isAvailableTest_EdgeValueTesting() {
+		assertEquals(false, s1.isAvailable());	
+		s1 = new Seat(TYPE.EC, 1, 'A');
+		assertEquals(true, s1.isAvailable());
+	}
+
+	@Test
+	public void isAvailableTest_DecisionTableBasedTesting() {
+		assertEquals(false, s1.isAvailable());	
+		s1 = new Seat(TYPE.EC, 1, 'A');
+		assertEquals(true, s1.isAvailable());
+	}
+
+	@Test
+	public void isBookableTest_BoundaryValueTesting() {
+
+	}
+
+	@Test
+	public void isBookableTest_EquivalenceTesting() {
+
+	}
+	
+	@Test
+	public void isBookableTest_EdgeValueTesting() {
+
+	}
+
+	@Test
+	public void isBookableTest_DecisionTableBasedTesting() {
+
+	}
+
 }
