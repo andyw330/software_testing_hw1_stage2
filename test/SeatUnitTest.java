@@ -283,6 +283,64 @@ public class SeatUnitTest {
 		assertEquals(false, s1.isBookable());
 	}
 
+	@Test
+	public void showInfoTest_BoundaryValueTesting() {
+		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		System.setOut (new PrintStream (outContent));
+		s1.showInfo();
+
+		assertEquals("Info A1 None 5000\n", outContent.toString().toString());
+	}
+
+	@Test
+	public void showInfoTest_EquivalenceTesting() {
+		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		System.setOut (new PrintStream (outContent));
+		s1.showInfo();
+
+		assertEquals("Info A1 None 5000\n", outContent.toString().toString());
+	}
 	
+	@Test
+	public void showInfoTest_EdgeValueTesting() {
+		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		System.setOut (new PrintStream (outContent));
+		s1.showInfo();
+
+		assertEquals("Info A1 None 5000\n", outContent.toString().toString());
+	}
+
+	@Test
+	public void showInfoTest_DecisionTableBasedTesting() {
+		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		System.setOut (new PrintStream (outContent));
+		s1.showInfo();
+
+		assertEquals("Info A1 None 5000\n", outContent.toString().toString());
+	}
+
+	@Test
+	public void notAvailableTest_BoundaryValueTesting() {
+		s1.notAvailable();
+		assertEquals(false, s1.isAvailable());
+	}
+
+	@Test
+	public void notAvailableTest_EquivalenceTesting() {
+		s1.notAvailable();
+		assertEquals(false, s1.isAvailable());
+	}
+	
+	@Test
+	public void notAvailableTest_EdgeValueTesting() {
+		s1.notAvailable();
+		assertEquals(false, s1.isAvailable());
+	}
+
+	@Test
+	public void notAvailableTest_DecisionTableBasedTesting() {
+		s1.notAvailable();
+		assertEquals(false, s1.isAvailable());
+	}
 
 }
