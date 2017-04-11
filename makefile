@@ -3,8 +3,10 @@ lib = ./bin:./lib/*
 system = ./source/*.java
 unitTest = ./test/*
 
-
 all: unitTest
+
+clean:
+	rm -rf bin
 
 system:
 	mkdir -p bin
@@ -13,5 +15,13 @@ system:
 unitTest: system
 	javac -g -cp $(lib) -d $(output) $(unitTest)
 
-run:
+
+######################################################################
+
+run : runSeatUnitTest
+
+runSeatUnitTest: unitTest
 	java -cp $(lib) org.junit.runner.JUnitCore test.SeatUnitTest
+
+runPlaneUnitTest: unitTest
+	java -cp $(lib) org.junit.runner.JUnitCore test.PlaneUnitTest
