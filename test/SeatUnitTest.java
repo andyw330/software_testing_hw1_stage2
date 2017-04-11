@@ -343,4 +343,27 @@ public class SeatUnitTest {
 		assertEquals(false, s1.isAvailable());
 	}
 
+	@Test
+	public void unregisterTest_BoundaryValueTesting() {
+		s1.unregister();
+		assertEquals(false, s1.isRegistered());
+	}
+
+	@Test
+	public void unregisterTest_EquivalenceTesting() {
+		s1.unregister();
+		assertEquals(false, s1.isRegistered());
+	}
+	
+	@Test
+	public void unregisterTest_EdgeValueTesting() {
+		s1.unregister();
+		assertEquals(false, s1.isRegistered());
+	}
+
+	@Test
+	public void unregisterTest_DecisionTableBasedTesting() {
+		s1.unregister();
+		assertEquals(false, s1.isRegistered());
+	}
 }
