@@ -1,13 +1,15 @@
 package test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import org.junit.After;
 import org.junit.Before;
 
 import system.FOOD;
-import system.Plane;
-import system.RandomCode;
 import system.Seat;
 import system.TYPE;
 
@@ -17,7 +19,7 @@ public class SeatUnitTest {
 
 	@Before
 	public void setUp() throws Exception {
-		s1 = new Seat(TYPE.EC, 1, 'A');;
+		s1 = new Seat(TYPE.EC, 1, 'A');
 	}
 
 	@After
@@ -35,12 +37,24 @@ public class SeatUnitTest {
 	public void orderFoodTest_EquivalenceTesting() {
 		s1.orderFood(FOOD.BEEF);
 		assertEquals("Beef", s1.foodType());
+		s1.orderFood(FOOD.PORK);
+		assertEquals("Pork", s1.foodType());
+		s1.orderFood(FOOD.VEGETABLE);
+		assertEquals("Vegetable", s1.foodType());
+		s1.orderFood(FOOD.NONE);
+		assertEquals("None", s1.foodType());
 	}
 	
 	@Test
 	public void orderFoodTest_EdgeValueTesting() {
 		s1.orderFood(FOOD.BEEF);
 		assertEquals("Beef", s1.foodType());
+		s1.orderFood(FOOD.PORK);
+		assertEquals("Pork", s1.foodType());
+		s1.orderFood(FOOD.VEGETABLE);
+		assertEquals("Vegetable", s1.foodType());
+		s1.orderFood(FOOD.NONE);
+		assertEquals("None", s1.foodType());
 	}
 
 	@Test
@@ -245,23 +259,30 @@ public class SeatUnitTest {
 
 	@Test
 	public void isBookableTest_BoundaryValueTesting() {
+		assertEquals(true, s1.isBookable());
+	}
+
+	@Test
+	public void isBookableTest_EquivalenceTesting() {
+		assertEquals(true, s1.isBookable());
+		s1.register(1);
+		assertEquals(false, s1.isBookable());
+	}
+	
+	@Test
+	public void isBookableTest_EdgeValueTesting() {
+		assertEquals(true, s1.isBookable());
 		s1.register(1);
 		assertEquals(false, s1.isBookable());
 	}
 
 	@Test
-	public void isBookableTest_EquivalenceTesting() {
-
-	}
-	
-	@Test
-	public void isBookableTest_EdgeValueTesting() {
-
-	}
-
-	@Test
 	public void isBookableTest_DecisionTableBasedTesting() {
-
+		assertEquals(true, s1.isBookable());
+		s1.register(1);
+		assertEquals(false, s1.isBookable());
 	}
+
+	
 
 }
