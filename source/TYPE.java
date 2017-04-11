@@ -1,3 +1,5 @@
+package system;
+
 public final class TYPE {
 
 	public final static int number = 4;

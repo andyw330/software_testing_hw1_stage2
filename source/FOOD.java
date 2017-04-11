@@ -1,3 +1,5 @@
+package system;
+
 public final class FOOD {
 
 	public final static int number = 4;

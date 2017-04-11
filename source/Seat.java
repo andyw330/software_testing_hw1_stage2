@@ -1,3 +1,5 @@
+package system;
+
 public class Seat implements Comparable<Seat> {
 
 	private boolean isAvailable = false;

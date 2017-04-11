@@ -1,3 +1,5 @@
+package system;
+
 public class FoodOrder {
 
 	public final int price;

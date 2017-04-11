@@ -1,3 +1,5 @@
+package system;
+
 public class SeatType {
 
 	public final int price;
