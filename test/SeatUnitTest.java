@@ -148,4 +148,32 @@ public class SeatUnitTest {
 		s1.orderFood(FOOD.BEEF);
 		assertEquals(102000, s1.getPrice());
 	}
+
+	@Test
+	public void TestRegister_BoundaryValueTesting() {
+		s1.register(1);
+		assertEquals(1, s1.getCode());
+		assertEquals(true, s1.isRegistered());
+	}
+
+	@Test
+	public void TestRegister_EquivalenceTesting() {
+		s1.register(1);
+		assertEquals(1, s1.getCode());
+		assertEquals(true, s1.isRegistered());
+	}
+	
+	@Test
+	public void TestRegister_EdgeValueTesting() {
+		s1.register(1);
+		assertEquals(1, s1.getCode());
+		assertEquals(true, s1.isRegistered());
+	}
+
+	@Test
+	public void TestRegister_DecisionTableBasedTesting() {
+		s1.register(1);
+		assertEquals(1, s1.getCode());
+		assertEquals(true, s1.isRegistered());
+	}
 }
