@@ -537,4 +537,53 @@ public class RandomCodeUnitTest {
 		r.showInfo();
 		assertEquals("Info 00000001 A1 B1 55000\n", outContent.toString());
 	}
+
+
+	@Test
+	public void sortSeatsTest_BoundaryValueTesting() {
+		r = new RandomCode(1);
+		seats[0] = new Seat(TYPE.EC, 1, 'B');
+		seats[1] = new Seat(TYPE.SBC, 1, 'A');
+		r.addSeat(seats[0]);
+		r.addSeat(seats[1]);
+		r.sortSeats();
+		assertEquals(true, r.seats[0].equals(this.seats[1]));
+		assertEquals(true, r.seats[1].equals(this.seats[0]));
+	}
+
+	@Test
+	public void sortSeatsTest_EquivalenceTesting() {
+		r = new RandomCode(1);
+		seats[0] = new Seat(TYPE.EC, 1, 'B');
+		seats[1] = new Seat(TYPE.SBC, 1, 'A');
+		r.addSeat(seats[0]);
+		r.addSeat(seats[1]);
+		r.sortSeats();
+		assertEquals(true, r.seats[0].equals(this.seats[1]));
+		assertEquals(true, r.seats[1].equals(this.seats[0]));
+	}
+
+	@Test
+	public void sortSeatsTest_EdgeValueTesting() {
+		r = new RandomCode(1);
+		seats[0] = new Seat(TYPE.EC, 1, 'B');
+		seats[1] = new Seat(TYPE.SBC, 1, 'A');
+		r.addSeat(seats[0]);
+		r.addSeat(seats[1]);
+		r.sortSeats();
+		assertEquals(true, r.seats[0].equals(this.seats[1]));
+		assertEquals(true, r.seats[1].equals(this.seats[0]));
+	}
+
+	@Test
+	public void sortSeatsTest_DecisionTableBasedTesting() {
+		r = new RandomCode(1);
+		seats[0] = new Seat(TYPE.EC, 1, 'B');
+		seats[1] = new Seat(TYPE.SBC, 1, 'A');
+		r.addSeat(seats[0]);
+		r.addSeat(seats[1]);
+		r.sortSeats();
+		assertEquals(true, r.seats[0].equals(this.seats[1]));
+		assertEquals(true, r.seats[1].equals(this.seats[0]));
+	}
 }
