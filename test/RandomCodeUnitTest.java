@@ -400,4 +400,100 @@ public class RandomCodeUnitTest {
 		assertEquals("123456789", outContent.toString());
 	}
 
+
+	@Test
+	public void orderFoodTest_BoundaryValueTesting() {
+		r = new RandomCode(1);
+		for (int i = 0; i < 384; ++i) {
+			r.addSeat(seats[i]);
+		}
+		r.orderFood(FOOD.BEEF);
+		assertEquals("Beef", r.seats[0].foodType());
+		assertEquals("Beef", r.seats[1].foodType());
+		assertEquals("Beef", r.seats[191].foodType());
+		assertEquals("Beef", r.seats[382].foodType());
+		assertEquals("Beef", r.seats[383].foodType());
+		r.orderFood(FOOD.PORK);
+		assertEquals("Pork", r.seats[0].foodType());
+		assertEquals("Pork", r.seats[1].foodType());
+		assertEquals("Pork", r.seats[191].foodType());
+		assertEquals("Pork", r.seats[382].foodType());
+		assertEquals("Pork", r.seats[383].foodType());
+		r.orderFood(FOOD.VEGETABLE);
+		assertEquals("Vegetable", r.seats[0].foodType());
+		assertEquals("Vegetable", r.seats[1].foodType());
+		assertEquals("Vegetable", r.seats[191].foodType());
+		assertEquals("Vegetable", r.seats[382].foodType());
+		assertEquals("Vegetable", r.seats[383].foodType());
+		r.orderFood(FOOD.NONE);
+		assertEquals("None", r.seats[0].foodType());
+		assertEquals("None", r.seats[1].foodType());
+		assertEquals("None", r.seats[191].foodType());
+		assertEquals("None", r.seats[382].foodType());
+		assertEquals("None", r.seats[383].foodType());
+	}
+
+	@Test
+	public void orderFoodTest_EquivalenceTesting() {
+		r = new RandomCode(1);
+		for (int i = 0; i < 384; ++i) {
+			r.addSeat(seats[i]);
+		}
+		r.orderFood(FOOD.BEEF);
+		assertEquals("Beef", r.seats[191].foodType());
+		r.orderFood(FOOD.PORK);
+		assertEquals("Pork", r.seats[191].foodType());
+		r.orderFood(FOOD.VEGETABLE);
+		assertEquals("Vegetable", r.seats[191].foodType());
+		r.orderFood(FOOD.NONE);
+		assertEquals("None", r.seats[191].foodType());
+	}
+
+	@Test
+	public void orderFoodTest_EdgeValueTesting() {
+		r = new RandomCode(1);
+		for (int i = 0; i < 384; ++i) {
+			r.addSeat(seats[i]);
+		}
+		r.orderFood(FOOD.BEEF);
+		assertEquals("Beef", r.seats[0].foodType());
+		assertEquals("Beef", r.seats[1].foodType());
+		assertEquals("Beef", r.seats[191].foodType());
+		assertEquals("Beef", r.seats[382].foodType());
+		assertEquals("Beef", r.seats[383].foodType());
+		r.orderFood(FOOD.PORK);
+		assertEquals("Pork", r.seats[0].foodType());
+		assertEquals("Pork", r.seats[1].foodType());
+		assertEquals("Pork", r.seats[191].foodType());
+		assertEquals("Pork", r.seats[382].foodType());
+		assertEquals("Pork", r.seats[383].foodType());
+		r.orderFood(FOOD.VEGETABLE);
+		assertEquals("Vegetable", r.seats[0].foodType());
+		assertEquals("Vegetable", r.seats[1].foodType());
+		assertEquals("Vegetable", r.seats[191].foodType());
+		assertEquals("Vegetable", r.seats[382].foodType());
+		assertEquals("Vegetable", r.seats[383].foodType());
+		r.orderFood(FOOD.NONE);
+		assertEquals("None", r.seats[0].foodType());
+		assertEquals("None", r.seats[1].foodType());
+		assertEquals("None", r.seats[191].foodType());
+		assertEquals("None", r.seats[382].foodType());
+		assertEquals("None", r.seats[383].foodType());
+	}
+
+	@Test
+	public void orderFoodTest_DecisionTableBasedTesting() {
+		r = new RandomCode(1);
+		for (int i = 0; i < 384; ++i) {
+			r.addSeat(seats[i]);
+		}
+		r.orderFood(FOOD.BEEF);
+		assertEquals("Beef", r.seats[191].foodType());
+		r.orderFood(FOOD.PORK);
+		assertEquals("Pork", r.seats[191].foodType());
+		r.orderFood(FOOD.VEGETABLE);
+		assertEquals("Vegetable", r.seats[191].foodType());
+		r.orderFood(FOOD.NONE);
+		assertEquals("None", r.seats[191].foodType());
+	}
 }
