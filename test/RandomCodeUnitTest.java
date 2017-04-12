@@ -194,4 +194,45 @@ public class RandomCodeUnitTest {
 		assertEquals(false, r.usable);
 	}
 
+
+	@Test
+	public void getCodeTest_BoundaryValueTesting() {
+		r = new RandomCode(1);
+		assertEquals(1, r.getCode());
+		r = new RandomCode(2);
+		assertEquals(2, r.getCode());
+		r = new RandomCode(Integer.MAX_VALUE / 2);
+		assertEquals(Integer.MAX_VALUE / 2, r.getCode());
+		r = new RandomCode(Integer.MAX_VALUE - 1);
+		assertEquals(Integer.MAX_VALUE - 1, r.getCode());
+		r = new RandomCode(Integer.MAX_VALUE);
+		assertEquals(Integer.MAX_VALUE, r.getCode());
+	}
+
+	@Test
+	public void getCodeTest_EquivalenceTesting() {
+		r = new RandomCode(Integer.MAX_VALUE / 2);
+		assertEquals(Integer.MAX_VALUE / 2, r.getCode());
+	}
+
+	@Test
+	public void getCodeTest_EdgeValueTesting() {
+		r = new RandomCode(1);
+		assertEquals(1, r.getCode());
+		r = new RandomCode(2);
+		assertEquals(2, r.getCode());
+		r = new RandomCode(Integer.MAX_VALUE / 2);
+		assertEquals(Integer.MAX_VALUE / 2, r.getCode());
+		r = new RandomCode(Integer.MAX_VALUE - 1);
+		assertEquals(Integer.MAX_VALUE - 1, r.getCode());
+		r = new RandomCode(Integer.MAX_VALUE);
+		assertEquals(Integer.MAX_VALUE, r.getCode());
+	}
+
+	@Test
+	public void getCodeTest_DecisionTableBasedTesting() {
+		r = new RandomCode(Integer.MAX_VALUE / 2);
+		assertEquals(Integer.MAX_VALUE / 2, r.getCode());
+	}
+
 }
