@@ -610,5 +610,52 @@ public class PlaneUnitTest {
 		assertEquals(12, p.seatsLeft(TYPE.SFC));
 	}
 
+	@Test
+	public void registerableTest_BoundaryValueTesting() {
+		assertEquals(true, p.registerAble(TYPE.SBC, 1));
+		assertEquals(true, p.registerAble(TYPE.SBC, 2));
+		assertEquals(true, p.registerAble(TYPE.SBC, 5));
+		assertEquals(true, p.registerAble(TYPE.SBC, 31));
+		assertEquals(true, p.registerAble(TYPE.SBC, 32));
+	}
+
+	@Test
+	public void registerableTest_EquivalenceTesting() {
+		assertEquals(true, p.registerAble(TYPE.SFC, 1));
+		assertEquals(true, p.registerAble(TYPE.SBC, 2));
+		assertEquals(true, p.registerAble(TYPE.EDC, 5));
+		assertEquals(true, p.registerAble(TYPE.EC, 31));
+	}
+	
+	@Test
+	public void registerableTest_EdgeValueTesting() {
+		assertEquals(true, p.registerAble(TYPE.SFC, 1));
+		assertEquals(true, p.registerAble(TYPE.SFC, 2));
+		assertEquals(true, p.registerAble(TYPE.SFC, 11));
+		assertEquals(true, p.registerAble(TYPE.SFC, 12));
+		
+		assertEquals(true, p.registerAble(TYPE.SBC, 1));
+		assertEquals(true, p.registerAble(TYPE.SBC, 2));
+		assertEquals(true, p.registerAble(TYPE.SBC, 31));
+		assertEquals(true, p.registerAble(TYPE.SBC, 32));
+			
+		assertEquals(true, p.registerAble(TYPE.EDC, 1));
+		assertEquals(true, p.registerAble(TYPE.EDC, 2));
+		assertEquals(true, p.registerAble(TYPE.EDC, 119));
+		assertEquals(true, p.registerAble(TYPE.EDC, 120));
+		
+		assertEquals(true, p.registerAble(TYPE.EC, 1));
+		assertEquals(true, p.registerAble(TYPE.EC, 2));
+		assertEquals(true, p.registerAble(TYPE.EC, 219));
+		assertEquals(true, p.registerAble(TYPE.EC, 220));
+	}
+
+	@Test
+	public void registerableTest_DecisionTableBasedTesting() {
+		assertEquals(true, p.registerAble(TYPE.SFC, 1));
+		assertEquals(true, p.registerAble(TYPE.SBC, 2));
+		assertEquals(true, p.registerAble(TYPE.EDC, 5));
+		assertEquals(true, p.registerAble(TYPE.EC, 31));
+	}
 
 }
