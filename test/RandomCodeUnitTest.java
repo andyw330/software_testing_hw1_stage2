@@ -496,4 +496,45 @@ public class RandomCodeUnitTest {
 		r.orderFood(FOOD.NONE);
 		assertEquals("None", r.seats[191].foodType());
 	}
+
+
+	@Test
+	public void showInfoTest_BoundaryValueTesting() {
+		setUpStreams();
+		r = new RandomCode(1);
+		r.addSeat(new Seat(TYPE.EC, 1, 'A'));
+		r.addSeat(new Seat(TYPE.SBC, 1, 'B'));
+		r.showInfo();
+		assertEquals("Info 00000001 A1 B1 55000\n", outContent.toString());
+	}
+
+	@Test
+	public void showInfoTest_EquivalenceTesting() {
+		setUpStreams();
+		r = new RandomCode(1);
+		r.addSeat(new Seat(TYPE.EC, 1, 'A'));
+		r.addSeat(new Seat(TYPE.SBC, 1, 'B'));
+		r.showInfo();
+		assertEquals("Info 00000001 A1 B1 55000\n", outContent.toString());
+	}
+
+	@Test
+	public void showInfoTest_EdgeValueTesting() {
+		setUpStreams();
+		r = new RandomCode(1);
+		r.addSeat(new Seat(TYPE.EC, 1, 'A'));
+		r.addSeat(new Seat(TYPE.SBC, 1, 'B'));
+		r.showInfo();
+		assertEquals("Info 00000001 A1 B1 55000\n", outContent.toString());
+	}
+
+	@Test
+	public void showInfoTest_DecisionTableBasedTesting() {
+		setUpStreams();
+		r = new RandomCode(1);
+		r.addSeat(new Seat(TYPE.EC, 1, 'A'));
+		r.addSeat(new Seat(TYPE.SBC, 1, 'B'));
+		r.showInfo();
+		assertEquals("Info 00000001 A1 B1 55000\n", outContent.toString());
+	}
 }
