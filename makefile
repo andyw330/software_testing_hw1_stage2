@@ -25,3 +25,6 @@ runSeatUnitTest:
 
 runPlaneUnitTest:
 	java -cp $(lib) org.junit.runner.JUnitCore test.PlaneUnitTest
+
+runRandomCodeUnitTest:
+	java -cp $(lib) org.junit.runner.JUnitCore test.RandomCodeUnitTest
