@@ -14,7 +14,7 @@ import system.Seat;
 import system.TYPE;
 
 public class SeatUnitTest {
-	
+
 	Seat s1;
 
 	@Before
@@ -44,7 +44,7 @@ public class SeatUnitTest {
 		s1.orderFood(FOOD.NONE);
 		assertEquals("None", s1.foodType());
 	}
-	
+
 	@Test
 	public void orderFoodTest_EdgeValueTesting() {
 		s1.orderFood(FOOD.BEEF);
@@ -86,7 +86,7 @@ public class SeatUnitTest {
 		s1 = new Seat(TYPE.SFC, 1, 'A');
 		assertEquals(100000, s1.getSeatPrice());
 	}
-	
+
 	@Test
 	public void getSeatPriceTest_EdgeValueTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
@@ -138,7 +138,7 @@ public class SeatUnitTest {
 		assertEquals(100000, s1.getPrice());
 		s1.orderFood(FOOD.VEGETABLE);
 	}
-	
+
 	@Test
 	public void getPriceTest_EdgeValueTesting() {
 		s1 = new Seat(TYPE.EC, 1, 'A');
@@ -181,7 +181,7 @@ public class SeatUnitTest {
 		assertEquals(21000, s1.getPrice());
 		s1.orderFood(FOOD.BEEF);
 		assertEquals(22000, s1.getPrice());
-	
+
 		s1 = new Seat(TYPE.SBC, 6, 'A');
 		s1.orderFood(FOOD.NONE);
 		assertEquals(50000, s1.getPrice());
@@ -216,7 +216,7 @@ public class SeatUnitTest {
 		assertEquals(1, s1.getCode());
 		assertEquals(true, s1.isRegistered());
 	}
-	
+
 	@Test
 	public void registerTest_EdgeValueTesting() {
 		s1.register(1);
@@ -238,21 +238,21 @@ public class SeatUnitTest {
 
 	@Test
 	public void isAvailableTest_EquivalenceTesting() {
-		assertEquals(true, s1.isAvailable());	
+		assertEquals(true, s1.isAvailable());
 		s1 = new Seat();
 		assertEquals(false, s1.isAvailable());
 	}
-	
+
 	@Test
 	public void isAvailableTest_EdgeValueTesting() {
-		assertEquals(true, s1.isAvailable());	
+		assertEquals(true, s1.isAvailable());
 		s1 = new Seat();
 		assertEquals(false, s1.isAvailable());
 	}
 
 	@Test
 	public void isAvailableTest_DecisionTableBasedTesting() {
-		assertEquals(true, s1.isAvailable());	
+		assertEquals(true, s1.isAvailable());
 		s1 = new Seat();
 		assertEquals(false, s1.isAvailable());
 	}
@@ -268,7 +268,7 @@ public class SeatUnitTest {
 		s1.register(1);
 		assertEquals(false, s1.isBookable());
 	}
-	
+
 	@Test
 	public void isBookableTest_EdgeValueTesting() {
 		assertEquals(true, s1.isBookable());
@@ -289,7 +289,7 @@ public class SeatUnitTest {
 		System.setOut (new PrintStream (outContent));
 		s1.showInfo();
 
-		assertEquals("Info A1 None 5000\n", outContent.toString().toString());
+		assertEquals("Info A1 None 5000\n", outContent.toString());
 	}
 
 	@Test
@@ -298,16 +298,16 @@ public class SeatUnitTest {
 		System.setOut (new PrintStream (outContent));
 		s1.showInfo();
 
-		assertEquals("Info A1 None 5000\n", outContent.toString().toString());
+		assertEquals("Info A1 None 5000\n", outContent.toString());
 	}
-	
+
 	@Test
 	public void showInfoTest_EdgeValueTesting() {
 		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 		System.setOut (new PrintStream (outContent));
 		s1.showInfo();
 
-		assertEquals("Info A1 None 5000\n", outContent.toString().toString());
+		assertEquals("Info A1 None 5000\n", outContent.toString());
 	}
 
 	@Test
@@ -316,7 +316,7 @@ public class SeatUnitTest {
 		System.setOut (new PrintStream (outContent));
 		s1.showInfo();
 
-		assertEquals("Info A1 None 5000\n", outContent.toString().toString());
+		assertEquals("Info A1 None 5000\n", outContent.toString());
 	}
 
 	@Test
@@ -330,7 +330,7 @@ public class SeatUnitTest {
 		s1.notAvailable();
 		assertEquals(false, s1.isAvailable());
 	}
-	
+
 	@Test
 	public void notAvailableTest_EdgeValueTesting() {
 		s1.notAvailable();
@@ -354,7 +354,7 @@ public class SeatUnitTest {
 		s1.unregister();
 		assertEquals(false, s1.isRegistered());
 	}
-	
+
 	@Test
 	public void unregisterTest_EdgeValueTesting() {
 		s1.unregister();
