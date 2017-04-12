@@ -8,6 +8,7 @@ import org.junit.Before;
 import system.Plane;
 import system.TYPE;
 import system.FOOD;
+import system.RandomCode;
 
 public class PlaneUnitTest {
 	
@@ -656,6 +657,239 @@ public class PlaneUnitTest {
 		assertEquals(true, p.registerAble(TYPE.SBC, 2));
 		assertEquals(true, p.registerAble(TYPE.EDC, 5));
 		assertEquals(true, p.registerAble(TYPE.EC, 31));
+	}
+
+	@Test
+	public void registerTypeTest_BoundaryValueTesting() {
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 1);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 2);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 3);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EC));
+		p.numberCode++;	
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 219);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EC));
+		p.numberCode++;	
+
+		// p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		// p.registerType(TYPE.EC, 220);
+		// assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EC));
+		// p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EDC, 1);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EDC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EDC, 2);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EDC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EDC, 3);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EDC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EDC, 119);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EDC));
+		p.numberCode++;
+
+		// p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		// p.registerType(TYPE.EDC, 120);
+		// assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EDC));
+		// p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SBC, 1);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SBC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SBC, 2);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SBC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SBC, 3);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SBC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SBC, 31);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SBC));
+		p.numberCode++;
+
+		// p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		// p.registerType(TYPE.SBC, 32);
+		// assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SBC));
+		// p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SFC, 1);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SFC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SFC, 2);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SFC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SFC, 3);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SFC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SFC, 11);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SFC));
+		p.numberCode++;
+
+		// p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		// p.registerType(TYPE.SFC, 12);
+		// assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SFC));
+		// p.numberCode++;
+	}
+
+	@Test
+	public void registerTypeTest_EquivalenceTesting() {
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 2);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SFC, 12);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SFC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SBC, 3);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SBC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EDC, 1);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EDC));
+		p.numberCode++;
+
+	}
+	
+	@Test
+	public void registerTypeTest_EdgeValueTesting() {
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 1);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 2);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 219);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EC));
+		p.numberCode++;
+
+		// p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		// p.registerType(TYPE.EC, 220);
+		// assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EC));
+		// p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EDC, 1);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EDC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EDC, 2);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EDC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EDC, 119);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EDC));
+		p.numberCode++;
+
+		// p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		// p.registerType(TYPE.EDC, 120);
+		// assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EDC));
+		// p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SBC, 1);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SBC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SBC, 2);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SBC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SBC, 31);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SBC));
+		p.numberCode++;
+
+		// p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		// p.registerType(TYPE.SBC, 32);
+		// assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SBC));
+		// p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SFC, 1);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SFC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SFC, 2);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SFC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SFC, 11);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SFC));
+		p.numberCode++;
+
+		// p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		// p.registerType(TYPE.SFC, 12);
+		// assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SFC));
+		// p.numberCode++;
+	}
+
+	@Test
+	public void registerTypeTest_DecisionTableBasedTesting() {
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 2);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SFC, 11);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SFC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.SBC, 3);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.SBC));
+		p.numberCode++;
+
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EDC, 1);
+		assertEquals(true, p.codeList[p.numberCode].seats[0].seatType.equals(TYPE.EDC));
+		p.numberCode++;
 	}
 
 }
