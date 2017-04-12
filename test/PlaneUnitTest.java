@@ -561,6 +561,54 @@ public class PlaneUnitTest {
 		assertEquals(false, p.K[1].isAvailable());
 	}
 
+	@Test
+	public void seatsLeftTest_BoundaryValueTesting() {
+		assertEquals(384, p.seatsLeft());
+	}
+
+	@Test
+	public void seatsLeftTest_EquivalenceTesting() {
+		assertEquals(384, p.seatsLeft());
+	}
+	
+	@Test
+	public void seatsLeftTest_EdgeValueTesting() {
+		assertEquals(384, p.seatsLeft());
+	}
+
+	@Test
+	public void seatsLeftTest_DecisionTableBasedTesting() {
+		assertEquals(384, p.seatsLeft());
+	}
+	
+	@Test
+	public void seatsLeftTest2_BoundaryValueTesting() {
+		assertEquals(220, p.seatsLeft(TYPE.EC));
+	}
+
+	@Test
+	public void seatsLeftTest2_EquivalenceTesting() {
+		assertEquals(220, p.seatsLeft(TYPE.EC));
+		assertEquals(120, p.seatsLeft(TYPE.EDC));
+		assertEquals(32, p.seatsLeft(TYPE.SBC));
+		assertEquals(12, p.seatsLeft(TYPE.SFC));
+	}
+	
+	@Test
+	public void seatsLeftTest2_EdgeValueTesting() {
+		assertEquals(220, p.seatsLeft(TYPE.EC));
+		assertEquals(120, p.seatsLeft(TYPE.EDC));
+		assertEquals(32, p.seatsLeft(TYPE.SBC));
+		assertEquals(12, p.seatsLeft(TYPE.SFC));
+	}
+
+	@Test
+	public void seatsLeftTest2_DecisionTableBasedTesting() {
+		assertEquals(220, p.seatsLeft(TYPE.EC));
+		assertEquals(120, p.seatsLeft(TYPE.EDC));
+		assertEquals(32, p.seatsLeft(TYPE.SBC));
+		assertEquals(12, p.seatsLeft(TYPE.SFC));
+	}
 
 
 }
