@@ -9,6 +9,7 @@ import system.Plane;
 import system.TYPE;
 import system.FOOD;
 import system.RandomCode;
+import system.Seat;
 
 public class PlaneUnitTest {
 	
@@ -892,4 +893,39 @@ public class PlaneUnitTest {
 		p.numberCode++;
 	}
 
+	@Test
+	public void unregisterSeatTest_BoundaryValueTesting() {
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 1);
+		Seat s = p.codeList[p.numberCode].seats[0];
+		p.unregisterSeat(s);
+		assertEquals(false, p.codeList[0].usable);
+	}
+
+	@Test
+	public void unregisterSeatTest_EquivalenceTesting() {
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 1);
+		Seat s = p.codeList[p.numberCode].seats[0];
+		p.unregisterSeat(s);
+		assertEquals(false, p.codeList[0].usable);
+	}
+	
+	@Test
+	public void unregisterSeatTest_EdgeValueTesting() {
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 1);
+		Seat s = p.codeList[p.numberCode].seats[0];
+		p.unregisterSeat(s);
+		assertEquals(false, p.codeList[0].usable);
+	}
+
+	@Test
+	public void unregisterSeatTest_DecisionTableBasedTesting() {
+		p.codeList[p.numberCode] = new RandomCode(p.numberCode+1);
+		p.registerType(TYPE.EC, 1);
+		Seat s = p.codeList[p.numberCode].seats[0];
+		p.unregisterSeat(s);
+		assertEquals(false, p.codeList[0].usable);
+	}
 }
