@@ -165,4 +165,33 @@ public class RandomCodeUnitTest {
 		assertEquals(192, r.numberSeats());
 	}
 
+
+	@Test
+	public void unregisterCodeTest_BoundaryValueTesting() {
+		r.unregisterCode();
+		assertEquals(0, r.numberSeats());
+		assertEquals(false, r.usable);
+	}
+
+	@Test
+	public void unregisterCodeTest_EquivalenceTesting() {
+		r.unregisterCode();
+		assertEquals(0, r.numberSeats());
+		assertEquals(false, r.usable);
+	}
+
+	@Test
+	public void unregisterCodeTest_EdgeValueTesting() {
+		r.unregisterCode();
+		assertEquals(0, r.numberSeats());
+		assertEquals(false, r.usable);
+	}
+
+	@Test
+	public void unregisterCodeTest_DecisionTableBasedTesting() {
+		r.unregisterCode();
+		assertEquals(0, r.numberSeats());
+		assertEquals(false, r.usable);
+	}
+
 }
