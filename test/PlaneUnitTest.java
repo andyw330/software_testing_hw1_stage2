@@ -219,6 +219,348 @@ public class PlaneUnitTest {
 		assertEquals(false, p.A[1].isAvailable());
 	}
 
+	@Test
+	public void removeRowBTest_BoundaryValueTesting() {
+		p.removeRowB(45);
+		assertEquals(false, p.B[45].isAvailable());
+		p.removeRowB(46);
+		assertEquals(false, p.B[46].isAvailable());
+		p.removeRowB(47);
+		assertEquals(false, p.B[47].isAvailable());
+		p.removeRowB(69);
+		assertEquals(false, p.B[69].isAvailable());
+		p.removeRowB(70);
+		assertEquals(false, p.B[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowBTest_EquivalenceTesting() {
+		p.removeRowB(45);
+		assertEquals(false, p.B[45].isAvailable());
+	}
+	
+	@Test
+	public void removeRowBTest_EdgeValueTesting() {
+		p.removeRowB(45);
+		assertEquals(false, p.B[45].isAvailable());
+		p.removeRowB(46);
+		assertEquals(false, p.B[46].isAvailable());
+		p.removeRowB(69);
+		assertEquals(false, p.B[69].isAvailable());
+		p.removeRowB(70);
+		assertEquals(false, p.B[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowBTest_DecisionTableBasedTesting() {
+		p.removeRowB(45);
+		assertEquals(false, p.B[45].isAvailable());
+	}
+
+	@Test
+	public void removeRowCTest_BoundaryValueTesting() {
+		p.removeRowC(1);
+		assertEquals(false, p.C[1].isAvailable());
+		p.removeRowC(2);
+		assertEquals(false, p.C[2].isAvailable());
+		p.removeRowC(8);
+		assertEquals(false, p.C[8].isAvailable());
+		p.removeRowC(69);
+		assertEquals(false, p.C[69].isAvailable());
+		p.removeRowC(70);
+		assertEquals(false, p.C[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowCTest_EquivalenceTesting() {
+		p.removeRowC(1);
+		assertEquals(false, p.C[1].isAvailable());
+	}
+	
+	@Test
+	public void removeRowCTest_EdgeValueTesting() {
+		p.removeRowC(1);
+		assertEquals(false, p.C[1].isAvailable());
+		p.removeRowC(2);
+		assertEquals(false, p.C[2].isAvailable());
+		p.removeRowC(69);
+		assertEquals(false, p.C[69].isAvailable());
+		p.removeRowC(70);
+		assertEquals(false, p.C[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowCTest_DecisionTableBasedTesting() {
+		p.removeRowC(1);
+		assertEquals(false, p.C[1].isAvailable());
+	}
+
+	@Test
+	public void removeRowDTest_BoundaryValueTesting() {
+		p.removeRowD(27);
+		assertEquals(false, p.D[27].isAvailable());
+		p.removeRowD(28);
+		assertEquals(false, p.D[28].isAvailable());
+		p.removeRowD(29);
+		assertEquals(false, p.D[29].isAvailable());
+		p.removeRowD(69);
+		assertEquals(false, p.D[69].isAvailable());
+		p.removeRowD(70);
+		assertEquals(false, p.D[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowDTest_EquivalenceTesting() {
+		p.removeRowD(27);
+		assertEquals(false, p.D[27].isAvailable());
+	}
+	
+	@Test
+	public void removeRowDTest_EdgeValueTesting() {
+		p.removeRowD(27);
+		assertEquals(false, p.D[27].isAvailable());
+		p.removeRowD(28);
+		assertEquals(false, p.D[28].isAvailable());
+		p.removeRowD(69);
+		assertEquals(false, p.D[69].isAvailable());
+		p.removeRowD(70);
+		assertEquals(false, p.D[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowDTest_DecisionTableDasedTesting() {
+		p.removeRowD(27);
+		assertEquals(false, p.D[27].isAvailable());
+	}
+
+	@Test
+	public void removeRowETest_BoundaryValueTesting() {
+		p.removeRowE(27);
+		assertEquals(false, p.E[27].isAvailable());
+		p.removeRowE(28);
+		assertEquals(false, p.E[28].isAvailable());
+		p.removeRowE(29);
+		assertEquals(false, p.E[29].isAvailable());
+		p.removeRowE(69);
+		assertEquals(false, p.E[69].isAvailable());
+		p.removeRowE(70);
+		assertEquals(false, p.E[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowETest_EquivalenceTesting() {
+		p.removeRowE(27);
+		assertEquals(false, p.E[27].isAvailable());
+	}
+	
+	@Test
+	public void removeRowETest_EdgeValueTesting() {
+		p.removeRowE(27);
+		assertEquals(false, p.E[27].isAvailable());
+		p.removeRowE(28);
+		assertEquals(false, p.E[28].isAvailable());
+		p.removeRowE(69);
+		assertEquals(false, p.E[69].isAvailable());
+		p.removeRowE(70);
+		assertEquals(false, p.E[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowETest_DecisionTableDasedTesting() {
+		p.removeRowE(27);
+		assertEquals(false, p.E[27].isAvailable());
+	}
+
+	@Test
+	public void removeRowFTest_BoundaryValueTesting() {
+		p.removeRowF(27);
+		assertEquals(false, p.F[27].isAvailable());
+		p.removeRowF(28);
+		assertEquals(false, p.F[28].isAvailable());
+		p.removeRowF(29);
+		assertEquals(false, p.F[29].isAvailable());
+		p.removeRowF(69);
+		assertEquals(false, p.F[69].isAvailable());
+		p.removeRowF(70);
+		assertEquals(false, p.F[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowFTest_EquivalenceTesting() {
+		p.removeRowF(27);
+		assertEquals(false, p.F[27].isAvailable());
+	}
+	
+	@Test
+	public void removeRowFTest_EdgeValueTesting() {
+		p.removeRowF(27);
+		assertEquals(false, p.F[27].isAvailable());
+		p.removeRowF(28);
+		assertEquals(false, p.F[28].isAvailable());
+		p.removeRowF(69);
+		assertEquals(false, p.F[69].isAvailable());
+		p.removeRowF(70);
+		assertEquals(false, p.F[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowFTest_DecisionTableDasedTesting() {
+		p.removeRowF(27);
+		assertEquals(false, p.F[27].isAvailable());
+	}
+
+	@Test
+	public void removeRowGTest_BoundaryValueTesting() {
+		p.removeRowG(27);
+		assertEquals(false, p.G[27].isAvailable());
+		p.removeRowG(28);
+		assertEquals(false, p.G[28].isAvailable());
+		p.removeRowG(29);
+		assertEquals(false, p.G[29].isAvailable());
+		p.removeRowG(69);
+		assertEquals(false, p.G[69].isAvailable());
+		p.removeRowG(70);
+		assertEquals(false, p.G[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowGTest_EquivalenceTesting() {
+		p.removeRowG(27);
+		assertEquals(false, p.G[27].isAvailable());
+	}
+	
+	@Test
+	public void removeRowGTest_EdgeValueTesting() {
+		p.removeRowG(27);
+		assertEquals(false, p.G[27].isAvailable());
+		p.removeRowG(28);
+		assertEquals(false, p.G[28].isAvailable());
+		p.removeRowG(69);
+		assertEquals(false, p.G[69].isAvailable());
+		p.removeRowG(70);
+		assertEquals(false, p.G[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowGTest_DecisionTableDasedTesting() {
+		p.removeRowG(27);
+		assertEquals(false, p.G[27].isAvailable());
+	}
+
+	@Test
+	public void removeRowHTest_BoundaryValueTesting() {
+		p.removeRowH(1);
+		assertEquals(false, p.H[1].isAvailable());
+		p.removeRowH(2);
+		assertEquals(false, p.H[2].isAvailable());
+		p.removeRowH(8);
+		assertEquals(false, p.H[8].isAvailable());
+		p.removeRowH(69);
+		assertEquals(false, p.H[69].isAvailable());
+		p.removeRowH(70);
+		assertEquals(false, p.H[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowHTest_EquivalenceTesting() {
+		p.removeRowH(1);
+		assertEquals(false, p.H[1].isAvailable());
+	}
+	
+	@Test
+	public void removeRowHTest_EdgeValueTesting() {
+		p.removeRowH(1);
+		assertEquals(false, p.H[1].isAvailable());
+		p.removeRowH(2);
+		assertEquals(false, p.H[2].isAvailable());
+		p.removeRowH(69);
+		assertEquals(false, p.H[69].isAvailable());
+		p.removeRowH(70);
+		assertEquals(false, p.H[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowHTest_DecisionTableBasedTesting() {
+		p.removeRowH(1);
+		assertEquals(false, p.H[1].isAvailable());
+	}
+
+	@Test
+	public void removeRowJTest_BoundaryValueTesting() {
+		p.removeRowJ(45);
+		assertEquals(false, p.J[45].isAvailable());
+		p.removeRowJ(46);
+		assertEquals(false, p.J[46].isAvailable());
+		p.removeRowJ(47);
+		assertEquals(false, p.J[47].isAvailable());
+		p.removeRowJ(69);
+		assertEquals(false, p.J[69].isAvailable());
+		p.removeRowJ(70);
+		assertEquals(false, p.J[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowJTest_EquivalenceTesting() {
+		p.removeRowJ(45);
+		assertEquals(false, p.J[45].isAvailable());
+	}
+	
+	@Test
+	public void removeRowJTest_EdgeValueTesting() {
+		p.removeRowJ(45);
+		assertEquals(false, p.J[45].isAvailable());
+		p.removeRowJ(46);
+		assertEquals(false, p.J[46].isAvailable());
+		p.removeRowJ(69);
+		assertEquals(false, p.J[69].isAvailable());
+		p.removeRowJ(70);
+		assertEquals(false, p.J[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowJTest_DecisionTableJasedTesting() {
+		p.removeRowJ(45);
+		assertEquals(false, p.J[45].isAvailable());
+	}
+
+	@Test
+	public void removeRowKTest_BoundaryValueTesting() {
+		p.removeRowK(1);
+		assertEquals(false, p.K[1].isAvailable());
+		p.removeRowK(2);
+		assertEquals(false, p.K[2].isAvailable());
+		p.removeRowK(8);
+		assertEquals(false, p.K[8].isAvailable());
+		p.removeRowK(69);
+		assertEquals(false, p.K[69].isAvailable());
+		p.removeRowK(70);
+		assertEquals(false, p.K[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowKTest_EquivalenceTesting() {
+		p.removeRowK(1);
+		assertEquals(false, p.K[1].isAvailable());
+	}
+	
+	@Test
+	public void removeRowKTest_EdgeValueTesting() {
+		p.removeRowK(1);
+		assertEquals(false, p.K[1].isAvailable());
+		p.removeRowK(2);
+		assertEquals(false, p.K[2].isAvailable());
+		p.removeRowK(69);
+		assertEquals(false, p.K[69].isAvailable());
+		p.removeRowK(70);
+		assertEquals(false, p.K[70].isAvailable());
+	}
+
+	@Test
+	public void removeRowKTest_DecisionTableBasedTesting() {
+		p.removeRowK(1);
+		assertEquals(false, p.K[1].isAvailable());
+	}
+
 
 
 }
